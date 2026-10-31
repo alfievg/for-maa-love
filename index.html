@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untuk Kiara</title>
+<style>
+  :root {
+    --pink: #f4b6c8;
+    --pink-tombol: #e4799b;
+    --putih: #fffafb;
+    --pink-muda: #fdeef3;
+    --maroon: #6b1a38;
+    --redup: #8f6677;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(160deg, #f9cfdc, var(--pink));
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--maroon);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .kartu {
+    width: 100%;
+    max-width: 400px;
+    padding: 36px 24px 32px;
+    background: var(--putih);
+    border-radius: 20px;
+    box-shadow: 0 16px 40px rgba(107, 26, 56, 0.2);
+    text-align: center;
+  }
+
+  .halaman:not([hidden]) { animation: masuk 0.6s ease both; }
+  @keyframes masuk {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  .emoji { font-size: 2.6rem; line-height: 1; margin-bottom: 14px; }
+  .sapaan { color: var(--redup); margin-bottom: 8px; }
+  .nama { color: var(--maroon); font-weight: 600; }
+
+  h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.7rem;
+    line-height: 1.25;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .isi {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--redup);
+    margin-bottom: 24px;
+  }
+
+  .ttd {
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--redup);
+    margin-top: 22px;
+  }
+
+  /* Daftar alasan */
+  .janji {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    margin-bottom: 26px;
+    text-align: left;
+  }
+  .janji li {
+    padding: 12px 14px;
+    background: var(--pink-muda);
+    border-radius: 12px;
+    font-size: 0.97rem;
+    line-height: 1.5;
+    color: var(--redup);
+  }
+  .janji strong { display: block; color: var(--maroon); margin-bottom: 2px; }
+
+  /* Tombol */
+  .tombol { display: flex; flex-direction: column; gap: 12px; }
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    min-height: 48px;
+    padding: 12px 28px;
+    border: 2px solid var(--pink-tombol);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.3s ease, left 0.3s ease, top 0.3s ease;
+  }
+  .btn.mau { background: var(--pink-tombol); color: #fff; }
+  .btn.mau:hover { background: var(--maroon); border-color: var(--maroon); }
+  .btn.pelan { background: transparent; color: var(--maroon); border-color: #e9c4d0; }
+  .btn.pelan:hover { background: var(--pink-muda); }
+  .btn:focus-visible { outline: 3px solid var(--maroon); outline-offset: 3px; }
+
+  /* Tombol teks kecil */
+  .tautan {
+    background: none;
+    border: none;
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--redup);
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 10px;
+  }
+  .tautan:hover { color: var(--maroon); }
+  .tautan:focus-visible { outline: 3px solid var(--maroon); outline-offset: 2px; border-radius: 6px; }
+
+  /* Tombol kontak */
+  .label-kontak { font-size: 0.92rem; color: var(--redup); margin-bottom: 12px; }
+  .kontak { display: flex; flex-direction: column; gap: 10px; }
+
+  /* Area tombol di halaman pertanyaan: "Belum dulu" kabur di dalam kotak ini */
+  .area { position: relative; height: 170px; }
+  .area .btn { position: absolute; left: 50%; translate: -50% 0; }
+  .area .mau { top: 0; }
+  .area .gak {
+    top: 118px;
+    background: transparent;
+    color: var(--maroon);
+    border-color: #e9c4d0;
+    white-space: nowrap;
+  }
+
+  .hati {
+    position: fixed;
+    top: -30px;
+    pointer-events: none;
+    animation: jatuh linear forwards;
+  }
+  @keyframes jatuh { to { transform: translateY(112vh) rotate(200deg); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .halaman:not([hidden]) { animation: none; }
+    .hati { display: none; }
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+  <main class="kartu">
+
+    <!-- ===== HALAMAN PEMBUKA ===== -->
+    <section class="halaman" id="halSapa">
+      <div class="emoji">👋</div>
+      <p class="sapaan">Hai,</p>
+      <h1>Kiara</h1>
+      <p class="isi">
+        Adaa yangg mau akuu omonginn, tapii 
+        mauu seriuss apaa ndaaa??
+      </p>
+      <div class="tombol">
+        <button class="btn mau" id="btnLanjut">Okee, seriuss laa</button>
+      </div>
+    </section>
+
+    <!-- ===== HALAMAN 1: Pertanyaan ===== -->
+    <section class="halaman" id="halTanya" hidden>
+      <div class="emoji" id="emoji">🥺</div>
+      <p class="sapaan">Dear <span class="nama">Kiara</span></p>
+      <h1>May I be your boyfriend?</h1>
+      <p class="isi">
+        Kiara, dari awal aku kira kita bakal jadi teman seutuhnya, tapi sewaktu
+        kita udah beberapa minggu saling tukar kabar, cerita, bahkan tawa.
+        aku mulai suka sama kamu, suka cara pola pikir kamu, aku suka gimana 
+        cara kamu ngobrol, ngobrol nya kaya pedes pedes gimana gitu gemess.
+
+      </p>
+      <div class="area" id="area">
+        <button class="btn mau" id="btnMau">Iya Mau</button>
+        <button class="btn gak" id="btnGak">Belum dulu</button>
+      </div>
+      <button class="tautan" id="btnAlasan">Kenapa coba aku bisa suka kamu?</button>
+    </section>
+
+    <!-- ===== HALAMAN: Kenapa aku suka kamu ===== -->
+    <section class="halaman" id="halAlasan" hidden>
+      <div class="emoji">💭</div>
+      <h1>Kenapa aku suka kamu yaa</h1>
+      <p class="isi">
+        Jawaban jujur dari lubuk hatiqu paling inti:
+      </p>
+      <ul class="janji">
+        <li>
+          <strong>Kamu sesuai sama yang aku cari</strong>
+          Dari caramu bersikap sampai caramu ngomong, kamu tuh mirip banget
+          sama orang yang selama ini aku bayangin, kaya aku mikir apakah ini 
+          beneran mbg??my bini gua.
+        </li>
+        <li>
+          <strong>Aku bisa jadi diri sendiri kalo sama kamuu</strong>
+          Sama kamu aku nggak perlu pura-pura, dan itu hal yang jarang aku rasain.
+        </li>
+        <li>
+          <strong>Jarak kita yang jauh gabakal bikin cinta aku berkurang</strong>
+          Meskipun kita LDR nii, aku bakal berusaha supaya kita ngerasa tetep dekett
+        </li>
+        <!-- ISI SENDIRI: tambah satu alasan nyata, salin blok <li> di atas -->
+      </ul>
+      <div class="tombol">
+        <button class="btn mau" id="btnBalik">Balik ke pertanyaan</button>
+      </div>
+    </section>
+
+    <!-- ===== HALAMAN 2: Peyakinan (sederhana) ===== -->
+    <section class="halaman" id="halYakin" hidden>
+      <div class="emoji">🥹</div>
+      <h1>Ciuss laa???</h1>
+      <p class="isi">
+        Aku cuma mau mastiin aja, soalnya ini penting buat kita.
+        Kamu beneran mau?
+      </p>
+      <div class="tombol">
+        <button class="btn mau" id="btnYakin">Iya, aku yakin</button>
+        <button class="btn pelan" id="btnPikir">Aku pikir dulu</button>
+      </div>
+    </section>
+
+    <!-- ===== HALAMAN 3: Sukses ===== -->
+    <section class="halaman" id="halSukses" hidden>
+      <div class="emoji">🥰</div>
+      <h1>YESSSSSSSSS MAACIIII LALAAA</h1>
+      <p class="isi">
+        Aku senengggg bangett, walaupunn kitaa jauhh aku tetepp bakall 
+        berusahaaa supayaaa kitaaa komunikasiii teruss. MAAFFFFFF YAAAAAA UDAAA
+        NUNGGUUUU LAMAAAA, akuuu sengaja kokk xixixi
+      </p>
+      <p class="label-kontak">Kabarin aku ya lewat:</p>
+      <div class="kontak" data-pesan="Iya, aku mau"></div>
+      <p class="ttd">Dari: Pipiyyy</p>
+    </section>
+
+    <!-- ===== HALAMAN 4: Pikir dulu ===== -->
+    <section class="halaman" id="halPikir" hidden>
+      <div class="emoji">🌷</div>
+      <h1>gapapa kok</h1>
+      <p class="isi">
+        Pikirin aja dulu, gapapaaa gausaa buru buruu
+        Kalau udah siap, atau mau ngobrol dulu, kabarin aku aja.
+      </p>
+      <div class="kontak" data-pesan="Aku udah baca, kita ngobrol ya"></div>
+      <div class="tombol" style="margin-top:12px">
+        <button class="btn pelan" id="btnKembali">Balik ke pertanyaan</button>
+      </div>
+    </section>
+
+  </main>
+
+<script>
+  /* =========================================================
+     ISI DI SINI: username kamu (tanpa @).
+     Kosongkan ('') kalau tidak mau menampilkan tombolnya.
+     ========================================================= */
+  const KONTAK = {
+    telegram:  'v1ctrghar',
+    instagram: 'thrsghf',
+    tiktok:    'fckfieg'
+  };
+
+  /* ---------- Buat tombol kontak ---------- */
+  document.querySelectorAll('.kontak').forEach(wadah => {
+    const pesan = encodeURIComponent(wadah.dataset.pesan || '');
+    const daftar = [
+      { kunci: 'telegram',  teks: 'Telegram',  url: 'https://t.me/' + KONTAK.telegram + '?text=' + pesan },
+      { kunci: 'instagram', teks: 'Instagram', url: 'https://instagram.com/' + KONTAK.instagram },
+      { kunci: 'tiktok',    teks: 'TikTok',    url: 'https://www.tiktok.com/@' + KONTAK.tiktok }
+    ];
+    daftar.forEach((k, i) => {
+      if (!KONTAK[k.kunci]) return;
+      const a = document.createElement('a');
+      a.className = 'btn ' + (i === 0 ? 'mau' : 'pelan');
+      a.href = k.url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = k.teks;
+      wadah.appendChild(a);
+    });
+  });
+
+  /* ---------- Navigasi halaman ---------- */
+  const hal = {
+    sapa:   document.getElementById('halSapa'),
+    tanya:  document.getElementById('halTanya'),
+    alasan: document.getElementById('halAlasan'),
+    yakin:  document.getElementById('halYakin'),
+    sukses: document.getElementById('halSukses'),
+    pikir:  document.getElementById('halPikir')
+  };
+  function tampil(nama) {
+    Object.keys(hal).forEach(k => hal[k].hidden = (k !== nama));
+  }
+
+  const btnMau = document.getElementById('btnMau');
+  const btnGak = document.getElementById('btnGak');
+  const area   = document.getElementById('area');
+  const emoji  = document.getElementById('emoji');
+
+  /* ---------- Tombol "Belum dulu" kabur (tetap di dalam area) ---------- */
+  const teksGak = ['Belum dulu', 'Yakin?', 'Coba pikir lagi', 'Please', 'Boleh aja ya?'];
+  const wajah   = ['🥹', '😢', '😭', '💔'];
+  let percobaan = 0;
+
+  function kabur(e) {
+    if (e) e.preventDefault();
+    percobaan++;
+
+    btnGak.textContent = teksGak[Math.min(percobaan, teksGak.length - 1)];
+    emoji.textContent  = wajah[(percobaan - 1) % wajah.length];
+
+    const a = area.getBoundingClientRect();
+    const b = btnGak.getBoundingClientRect();
+    const maxLeft = Math.max(a.width - b.width, 0);
+    const minTop  = 80;
+    const maxTop  = Math.max(a.height - b.height, minTop);
+
+    btnGak.style.translate = 'none';
+    btnGak.style.left = Math.random() * maxLeft + 'px';
+    btnGak.style.top  = (minTop + Math.random() * (maxTop - minTop)) + 'px';
+
+    btnMau.style.transform = 'scale(' + Math.min(1 + percobaan * 0.06, 1.3) + ')';
+  }
+  btnGak.addEventListener('mouseenter', kabur);
+  btnGak.addEventListener('touchstart', kabur, { passive: false });
+  btnGak.addEventListener('click', kabur);
+
+  /* ---------- Tombol-tombol navigasi ---------- */
+  document.getElementById('btnLanjut').addEventListener('click', () => tampil('tanya'));
+  btnMau.addEventListener('click', () => tampil('yakin'));
+  document.getElementById('btnAlasan').addEventListener('click', () => tampil('alasan'));
+  document.getElementById('btnBalik').addEventListener('click', () => tampil('tanya'));
+
+  document.getElementById('btnYakin').addEventListener('click', () => {
+    tampil('sukses');
+    hujanHati();
+  });
+  document.getElementById('btnPikir').addEventListener('click', () => tampil('pikir'));
+  document.getElementById('btnKembali').addEventListener('click', () => tampil('tanya'));
+
+  /* ---------- Hati jatuh (sedikit saja) ---------- */
+  function hujanHati() {
+    const ikon = ['💗', '💖', '🌸'];
+    for (let n = 0; n < 12; n++) {
+      setTimeout(() => {
+        const h = document.createElement('span');
+        h.className = 'hati';
+        h.textContent = ikon[n % ikon.length];
+        h.style.left = Math.random() * 92 + 'vw';
+        h.style.fontSize = (18 + Math.random() * 12) + 'px';
+        h.style.animationDuration = (3 + Math.random() * 2) + 's';
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 5500);
+      }, n * 150);
+    }
+  }
+</script>
+</body>
+</html>
